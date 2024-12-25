@@ -1,17 +1,17 @@
 import { pgTable } from "drizzle-orm/pg-core";
-import { serial, varchar, date, integer, timestamp } from "drizzle-orm/pg-core";
+import { serial, varchar, date, integer, timestamp, real } from "drizzle-orm/pg-core";
 import { customer } from "./customer";
 import { room } from "./room";
 import { relations } from "drizzle-orm";
 
 export const booking = pgTable('booking',{
     id: serial('id').primaryKey(),
-    customerId: serial('customer_id').notNull(),
+    customerId: integer('customer_id').notNull(),
     roomId: integer('room_id').notNull(),
     bookingDateFrom: date('booking_date_from').notNull(),
     bookingDateTo: date('booking_date_to').notNull(),
     bookingType: varchar('booking_type').notNull(),
-    bookingAmount: varchar('booking_amount').notNull(),
+    bookingAmount: real('booking_amount').notNull(),
     createdAt: timestamp('created_at').defaultNow(),
     updatedAt: timestamp('updated_at').defaultNow(),
 });

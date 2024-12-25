@@ -1,11 +1,11 @@
 CREATE TABLE "booking" (
 	"id" serial PRIMARY KEY NOT NULL,
-	"customer_id" serial NOT NULL,
+	"customer_id" integer NOT NULL,
 	"room_id" integer NOT NULL,
 	"booking_date_from" date NOT NULL,
 	"booking_date_to" date NOT NULL,
 	"booking_type" varchar NOT NULL,
-	"booking_amount" varchar NOT NULL,
+	"booking_amount" real NOT NULL,
 	"created_at" timestamp DEFAULT now(),
 	"updated_at" timestamp DEFAULT now()
 );
@@ -22,5 +22,5 @@ CREATE TABLE "room" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"room_name" varchar NOT NULL,
 	"room_type" varchar NOT NULL,
-	"room_price" varchar NOT NULL
+	"room_price" real NOT NULL
 );

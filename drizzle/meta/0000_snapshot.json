@@ -1,5 +1,5 @@
 {
-  "id": "f62f8b40-6026-4bf5-b6f5-c9a42a57b607",
+  "id": "570c0d0b-3ed0-4633-8f61-d826bb441e84",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -16,7 +16,7 @@
         },
         "customer_id": {
           "name": "customer_id",
-          "type": "serial",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true
         },
@@ -46,7 +46,7 @@
         },
         "booking_amount": {
           "name": "booking_amount",
-          "type": "varchar",
+          "type": "real",
           "primaryKey": false,
           "notNull": true
         },
@@ -140,7 +140,7 @@
         },
         "room_price": {
           "name": "room_price",
-          "type": "varchar",
+          "type": "real",
           "primaryKey": false,
           "notNull": true
         }
