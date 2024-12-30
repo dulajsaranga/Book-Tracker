@@ -3,7 +3,7 @@ import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import { DrizzleAsyncProvider } from 'src/drizzle/drizzle.provider';
 import * as schema from 'src/drizzle/schemas';
 import { CreateBookingDto } from './dto/create-booking.dto';
-import { eq } from 'drizzle-orm';
+import { eq, desc } from 'drizzle-orm';
 
 @Injectable()
 export class BookingService {
@@ -27,7 +27,7 @@ export class BookingService {
     async getBookings() {
         const data = await this.db.select().from(schema.booking)
         .innerJoin(schema.customer, eq(schema.booking.customerId, schema.customer.id))
-        .innerJoin(schema.room, eq(schema.booking.roomId, schema.room.id));
+        .innerJoin(schema.room, eq(schema.booking.roomId, schema.room.id)).orderBy(desc(schema.booking.createdAt));
 
         return data.map(booking => ({
             ...booking.booking,
